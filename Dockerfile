@@ -1,9 +1,12 @@
-FROM python:3.9-slim
+FROM node:18-alpine
 
 WORKDIR /app
 
-RUN pip install flask
+COPY package.json package-lock.json* ./
+RUN npm install --production
 
 COPY . .
 
-CMD ["python3", "-c", "from flask import Flask; app=Flask(__name__); @app.route('/')\ndef hi(): return 'Backend Running'; app.run(host='0.0.0.0', port=5000)"]
+EXPOSE 8080
+
+CMD ["npm", "start"]
