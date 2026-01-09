@@ -4,7 +4,7 @@ const app = express();
 const PORT = 8080;
 
 app.get('/', (req, res) => {
-  res.send('✅ Backend is running successfully!');
+  res.send('Backend is running successfully!');
 });
 
 app.get('/health', (req, res) => {
@@ -12,5 +12,5 @@ app.get('/health', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
